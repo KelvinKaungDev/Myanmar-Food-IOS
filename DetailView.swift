@@ -45,9 +45,9 @@ struct DetailView: View {
                 }
             }
             
-            if show {
-                FoodDetails(namespace: namespace, show: $show)
-            }
+//            if show {
+//                FoodDetails(show: $show)
+//            }
         }
     }
 }

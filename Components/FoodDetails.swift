@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct FoodDetails: View {
-    var namespace : Namespace.ID
     @Binding var show : Bool
+    
+    var img : String
+    var title : String
+    var subTitle : String
+    var description : String
     
     var body: some View {
         ZStack {
@@ -45,26 +49,21 @@ struct FoodDetails: View {
         .padding(20)
         .foregroundColor(.white)
         .background(
-            Image("foodOne")
+            Image(img)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "background", in: namespace)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .matchedGeometryEffect(id: "mask", in: namespace)
         )
         .overlay (
             VStack (alignment: .leading, spacing: 12){
-                Text("Mong-Hin-Gar")
+                Text(title)
                     .font(.largeTitle.weight(.bold))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .matchedGeometryEffect(id: "title", in: namespace)
-                Text("Myanmar Traditional Food".uppercased())
+                Text(subTitle.uppercased())
                     .font(.footnote.weight(.semibold))
-                    .matchedGeometryEffect(id: "subtitle", in: namespace)
-                Text("Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing")
-                    .matchedGeometryEffect(id: "description", in: namespace)
+                Text(description)
                 }
                 .padding(20)
                 .background(
@@ -72,7 +71,7 @@ struct FoodDetails: View {
                         .fill(.ultraThinMaterial)
                         .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
                         .blur(radius: 0)
-                        .matchedGeometryEffect(id: "blur", in: namespace)
+
                 )
                 .offset(y: 200)
                 .padding(20)
@@ -80,10 +79,9 @@ struct FoodDetails: View {
     }
 }
 
-struct FoodDetails_Previews: PreviewProvider {
-    @Namespace static var namespace
-
-    static var previews: some View {
-        FoodDetails(namespace: namespace, show: .constant(true))
-    }
-}
+//struct FoodDetails_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", description: "")
+//    }
+//}

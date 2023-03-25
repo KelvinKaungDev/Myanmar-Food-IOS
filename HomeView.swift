@@ -7,7 +7,7 @@ struct HomeView: View {
         NavigationView {
             VStack {
                 Text(title.uppercased())
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(.brown)
                     .font(.title2)
                     .padding(.top,100)
                 

@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct FoodCollections: View {
-    var namespace : Namespace.ID
     
     @Binding var show : Bool
+    
+    var id : Int
     var img : String
     var title : String
     var subTitle : String
@@ -19,16 +20,13 @@ struct FoodCollections: View {
     var body: some View {
         VStack {
             Spacer()
-            VStack {
+            VStack (alignment: .leading, spacing: 12) {
                 Text(title)
                     .font(.largeTitle.weight(.bold))
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .matchedGeometryEffect(id: "title", in: namespace)
                 Text(subTitle.uppercased())
                     .font(.footnote.weight(.semibold))
-                    .matchedGeometryEffect(id: "subtitle", in: namespace)
-                Text(description)
-                    .matchedGeometryEffect(id: "description", in: namespace)
+                Text("\(description ) and \(id)")
             }
             .padding(15)
             .background(
@@ -36,7 +34,6 @@ struct FoodCollections: View {
                     .fill(.ultraThinMaterial)
                     .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
                     .blur(radius: 0)
-                    .matchedGeometryEffect(id: "blur", in: namespace)
             )
         }
         .foregroundColor(.white)
@@ -44,22 +41,18 @@ struct FoodCollections: View {
             Image(img)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .matchedGeometryEffect(id: "background", in: namespace)
         )
         .mask(
             RoundedRectangle(cornerRadius: 30, style: .continuous)
-                .matchedGeometryEffect(id: "mask", in: namespace)
         )
-        .padding(20)
-        .frame(height: 300)
+        .padding(10)
+        .frame(width: 320, height: 550)
     }
 }
 
-
-struct SwiftUIView_Previews: PreviewProvider {
-    @Namespace static var namespace
-
-    static var previews: some View {
-        FoodCollections(namespace: namespace, show: .constant(true), img: "", title: "", subTitle: "", description: "")
-    }
-}
+//struct SwiftUIView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        FoodCollections(show: .constant(true),img: "",title: "", subTitle: "", description: "")
+//    }
+//}
