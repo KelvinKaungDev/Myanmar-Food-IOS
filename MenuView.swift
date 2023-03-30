@@ -54,7 +54,7 @@ struct MenuView: View {
                                 }
                             }
                         }
-                        .navigationTitle("Burmese Food")
+                        .navigationTitle("Burmese Food Recepie")
                         .foregroundColor(.brown)
                         .navigationBarTitleDisplayMode(.automatic)
                     }

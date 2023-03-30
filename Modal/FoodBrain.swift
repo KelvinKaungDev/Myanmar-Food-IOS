@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Kaung Htet OO on 3/18/23.
-//
-
 import CoreFoundation
 import CoreGraphics
 
@@ -23,3 +16,4 @@ struct FoodBrain : Identifiable, Hashable{
         self.image = image
     }
 }
+

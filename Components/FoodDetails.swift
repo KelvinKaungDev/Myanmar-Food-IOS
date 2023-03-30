@@ -9,6 +9,7 @@ import SwiftUI
 
 struct FoodDetails: View {
     @Binding var show : Bool
+    @State private var showVegan = false
     
     var img : String
     var title : String
@@ -19,6 +20,7 @@ struct FoodDetails: View {
         ZStack {
             ScrollView {
                 cover
+                detail
             }
             .background(Color("background"))
             .ignoresSafeArea()
@@ -45,7 +47,7 @@ struct FoodDetails: View {
             Spacer()
         }
         .frame(maxWidth: .infinity)
-        .frame(height: 300)
+        .frame(height: 250)
         .padding(20)
         .foregroundColor(.white)
         .background(
@@ -73,15 +75,45 @@ struct FoodDetails: View {
                         .blur(radius: 0)
 
                 )
-                .offset(y: 200)
+                .offset(y: 180)
                 .padding(20)
             )
     }
+    
+    var detail : some View {
+        VStack {
+            
+            VStack {
+                Toggle(isOn: $showVegan) {
+                    Text("Vegan")
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
+
+                if !showVegan {
+                    Text("Ingredient")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text("The list of signatories includes the names of more than 1,000 people alongside Musk, including Apple co-founder Steve Wozniak, Sapiens author Yuval Noah Harari, and some of AI’s most distinguished academics responsible for multiple breakthroughs in machine learning. As of Tuesday, no OpenAI employees had signed the letter, although CEO Sam Altman’s name briefly appeared then disappeared from the list of signatories. At least four Google ")
+                } else {
+                    Text("Ingredient for Vegan")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    Text("The list of signatories includes the names of more than 1,000 people alongside Musk, including Apple co-founder Steve Wozniak, Sapiens author Yuval Noah Harari, and some of AI’s most distinguished academics responsible for multiple breakthroughs in machine learning. As of Tuesday, no OpenAI employees had signed the letter, although CEO Sam Altman’s name briefly appeared then disappeared from the list of signatories. At least four Google alongside Musk, including Apple co-founder Steve Wozniak, Sapiens author Yuval Noah Harari, and some of AI’s most distinguished academics responsible for multiple breakthroughs in machine learning. As of Tuesday, no OpenAI employees had signed the letter, although CEO Sam Altman’s name briefly appeared then disappeared from the list of signatories. At least four Google  ")
+                }
+            }
+            .padding(20)
+        }
+        .padding(.top, 120)
+    }
 }
 
-//struct FoodDetails_Previews: PreviewProvider {
-//
-//    static var previews: some View {
-//        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", description: "")
-//    }
-//}
+struct FoodDetails_Previews: PreviewProvider {
+
+    static var previews: some View {
+        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", description: "")
+    }
+}

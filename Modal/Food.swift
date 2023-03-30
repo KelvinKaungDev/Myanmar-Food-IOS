@@ -1,19 +1,12 @@
-//
-//  File.swift
-//  
-//
-//  Created by Kaung Htet OO on 3/18/23.
-//
-
 import Foundation
 import SwiftUI
 
 struct Food {
     var count : Int?
     var foods = [
-        FoodBrain(id: 0, title: "Mong-Hin-Gar", subTitle: "Myanmar Traditional Food", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", image: "foodOne"),
-        FoodBrain(id: 1, title: "La-Phat-Tote", subTitle: "Myanmar Traditional Food", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", image: "foodTwo"),
-        FoodBrain(id: 2, title: "Mong-Hin-Gar", subTitle: "Myanmar Traditional Food", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", image: "foodThree")
+        FoodBrain(id: 0, title: "Lahpet Thoke", subTitle: "Myanmar Traditional Food", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", image: "foodOne"),
+        FoodBrain(id: 1, title: "Mandalay Mee Shay", subTitle: "Myanmar Traditional Food", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ", image: "foodTwo"),
+        FoodBrain(id: 2, title: "Mote Lone Yay Paw", subTitle: "Myanmar Traditional Food", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", image: "foodThree")
     ]
     
     func foodCount() -> Int {
