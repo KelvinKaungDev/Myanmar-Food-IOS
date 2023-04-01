@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "laphatthoke transparent.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "photo-1606787366850-de6330128bfc-2-2.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

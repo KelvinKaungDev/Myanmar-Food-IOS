@@ -15,10 +15,11 @@ struct HistoryCollections : View {
     var description : String
     
     var body : some View {
-        VStack {
+        HStack {
             Image(image)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
+//                .frame(width: 280, height: 500)
+                .aspectRatio(contentMode: .fit)
                 .padding(.bottom)
             
             HStack {

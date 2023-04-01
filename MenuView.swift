@@ -18,10 +18,10 @@ struct MenuView: View {
                     ZStack {
                         ScrollView( showsIndicators: false) {
                             ScrollView(.horizontal, showsIndicators: false) {
-                                HStack (spacing: 20) {
+                                HStack (spacing: 40) {
                                     ForEach(Array(foods.enumerated()), id: \.offset) { index, food in
                                         GeometryReader { geometry in
-                                            FoodCollections(show: $show, id: index, img: food.image, title: food.title, subTitle: food.subTitle, description: food.description)
+                                            FoodCollections(show: $show, id: index, img: food.image, title: food.title, subTitle: food.subTitle, description: food.description, bgColor: food.bgColor)
                                                 .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 40) / -20), axis: (x: 0, y: 10.0, z: 0))
                                         }
                                         .frame(width: 300, height: 550)
@@ -50,15 +50,14 @@ struct MenuView: View {
                                             HistoryCollections(image: food.image, title: food.title, subtitle: food.subTitle, description: food.description)
                                         }
                                     }
-                                    .padding(20)
                                 }
                             }
                         }
-                        .navigationTitle("Burmese Food Recepie")
+                        .navigationBarTitle(Text("Food Recepie"))
                         .foregroundColor(.brown)
                         .navigationBarTitleDisplayMode(.automatic)
                     }
-                }
+                } .navigationBarBackButtonHidden()
         }
         
     }
