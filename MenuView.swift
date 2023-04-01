@@ -25,6 +25,7 @@ struct MenuView: View {
                                                 .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 40) / -20), axis: (x: 0, y: 10.0, z: 0))
                                         }
                                         .frame(width: 300, height: 550)
+                                        .shadow(color: Color.gray.opacity(0.8), radius: 10, x: 5, y: 5)
                                         .onTapGesture {
                                             withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
                                                 i = index
@@ -33,7 +34,8 @@ struct MenuView: View {
                                         }
                                     }
                                 }
-                                .padding(30)
+                                .padding(25)
+                                .animation(.easeInOut(duration: 0.5))
                             }
                             
                             Text("About Foods".uppercased())
@@ -53,11 +55,12 @@ struct MenuView: View {
                                 }
                             }
                         }
-                        .navigationBarTitle(Text("Food Recepie"))
+                        .navigationBarTitle("Food Recepie")
                         .foregroundColor(.brown)
                         .navigationBarTitleDisplayMode(.automatic)
                     }
-                } .navigationBarBackButtonHidden()
+            }
+            .navigationBarBackButtonHidden()
         }
         
     }
