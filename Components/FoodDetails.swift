@@ -11,6 +11,8 @@ struct FoodDetails: View {
     var title : String
     var subTitle : String
     var description : String
+    var ingredientOne : [String]
+    var ingredientTwo : [String]
     
     var body: some View {
         ZStack {
@@ -90,8 +92,30 @@ struct FoodDetails: View {
                         .fontWeight(.bold)
                         .frame(maxWidth: .infinity, alignment: .leading)
 
-                    Text("The list of signatories includes the names of more than 1,000 people alongside Musk, including Apple co-founder Steve Wozniak, Sapiens author Yuval Noah Harari, and some of AI’s most distinguished academics responsible for multiple breakthroughs in machine learning.")
-                        .padding(.top, 20)
+                    VStack {
+                        HStack (alignment: .top, spacing: 20){
+                            ForEach(ingredientOne, id: \.self) { ingredientOne in
+                                Image(ingredientOne)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 90, height: 90)
+                                    .padding(5)
+                            }
+                        }                        
+                    }
+                    
+                    VStack {
+                        HStack (alignment: .top, spacing: 20){
+                            ForEach(ingredientTwo, id: \.self) { ingredientTwo in
+                                Image(ingredientTwo)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 90, height: 90)
+                                    .padding(5)
+                            }
+                        }
+                    }
+
                     
                     Text("Process")
                         .font(.title)
@@ -119,6 +143,6 @@ struct FoodDetails: View {
 struct FoodDetails_Previews: PreviewProvider {
 
     static var previews: some View {
-        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", description: "")
+        FoodDetails(show: .constant(true), img: "", title: "", subTitle: "", description: "", ingredientOne: [""], ingredientTwo: [""])
     }
 }

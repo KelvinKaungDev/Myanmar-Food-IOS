@@ -10,7 +10,7 @@ struct MenuView: View {
         
         if show {
             let getFood = Food().getFoods(i: i)
-            FoodDetails(show: $show, img: getFood.image, title: getFood.title, subTitle: getFood.subTitle, description: getFood.description)
+            FoodDetails(show: $show, img: getFood.image, title: getFood.title, subTitle: getFood.subTitle, description: getFood.description, ingredientOne: getFood.ingredientOne, ingredientTwo: getFood.ingredientTwo)
         }
         
         if !show {
