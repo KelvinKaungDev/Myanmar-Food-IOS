@@ -20,7 +20,6 @@ struct FoodDetails: View {
                 cover
                 detail
             }
-            .background(Color("background"))
             .ignoresSafeArea()
 
             Button {
@@ -36,7 +35,7 @@ struct FoodDetails: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
             .padding(30)
-            .ignoresSafeArea()
+//            .ignoresSafeArea()
         }.navigationBarBackButtonHidden()
     }
     

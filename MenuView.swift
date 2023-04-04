@@ -14,53 +14,50 @@ struct MenuView: View {
         }
         
         if !show {
-            NavigationView {
-                    ZStack {
-                        ScrollView( showsIndicators: false) {
-                            ScrollView(.horizontal, showsIndicators: false) {
-                                HStack (spacing: 40) {
-                                    ForEach(Array(foods.enumerated()), id: \.offset) { index, food in
-                                        GeometryReader { geometry in
-                                            FoodCollections(show: $show, id: index, img: food.image, title: food.title, subTitle: food.subTitle, description: food.description, bgColor: food.bgColor)
-                                                .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 40) / -20), axis: (x: 0, y: 10.0, z: 0))
-                                        }
-                                        .frame(width: 300, height: 550)
-                                        .shadow(color: Color.gray.opacity(0.8), radius: 10, x: 5, y: 5)
-                                        .onTapGesture {
-                                            withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
-                                                i = index
-                                                show.toggle()
-                                            }
+                ZStack {
+                    ScrollView( showsIndicators: false) {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack (spacing: 40) {
+                                ForEach(Array(foods.enumerated()), id: \.offset) { index, food in
+                                    GeometryReader { geometry in
+                                        FoodCollections(show: $show, id: index, img: food.image, title: food.title, subTitle: food.subTitle, description: food.description, bgColor: food.bgColor)
+                                            .rotation3DEffect(Angle(degrees: (Double(geometry.frame(in: .global).minX) - 40) / -20), axis: (x: 0, y: 10.0, z: 0))
+                                    }
+                                    .frame(width: 300, height: 550)
+                                    .shadow(color: Color.gray.opacity(0.8), radius: 10, x: 5, y: 5)
+                                    .onTapGesture {
+                                        withAnimation(.spring(response: 0.6, dampingFraction: 0.8)) {
+                                            i = index
+                                            show.toggle()
                                         }
                                     }
                                 }
-                                .padding(25)
-                                .animation(.easeInOut(duration: 0.5))
                             }
-                            
-                            Text("About Foods".uppercased())
-                                .font(.title3)
-                                .font(.footnote.bold())
-                                .foregroundColor(.brown)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .padding(.leading, 20)
-                            
-                            ScrollView(.vertical, showsIndicators: false) {
-                                VStack(spacing: 20) {
-                                    ForEach(foods, id: \.self) { food in
-                                        NavigationLink (destination: HistoryDetails(food: food)){
-                                            HistoryCollections(image: food.image, title: food.title, subtitle: food.subTitle, description: food.description)
-                                        }
+                            .padding(25)
+                            .animation(.easeInOut(duration: 0.5))
+                        }
+                        
+                        Text("About Foods".uppercased())
+                            .font(.title3)
+                            .font(.footnote.bold())
+                            .foregroundColor(.brown)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.leading, 20)
+                        
+                        ScrollView(.vertical, showsIndicators: false) {
+                            VStack(spacing: 20) {
+                                ForEach(foods, id: \.self) { food in
+                                    NavigationLink (destination: HistoryDetails(food: food)){
+                                        HistoryCollections(image: food.image, title: food.title, subtitle: food.subTitle, description: food.description)
                                     }
                                 }
                             }
                         }
-                        .navigationBarTitle("Food Recepie")
-                        .foregroundColor(.brown)
-                        .navigationBarTitleDisplayMode(.automatic)
                     }
-            }
-            .navigationBarBackButtonHidden()
+                    .foregroundColor(.brown)
+//                    .navigationBarTitleDisplayMode()
+                }
+                .navigationBarBackButtonHidden()
         }
         
     }
