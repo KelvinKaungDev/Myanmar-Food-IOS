@@ -1,10 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Kaung Htet OO on 3/27/23.
-//
-
 import SwiftUI
 
 struct HistoryCollections : View {
@@ -18,7 +11,6 @@ struct HistoryCollections : View {
         HStack {
             Image(image)
                 .resizable()
-//                .frame(width: 280, height: 500)
                 .aspectRatio(contentMode: .fit)
                 .padding(.bottom)
             

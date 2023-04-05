@@ -1,8 +1,7 @@
-
-
 import SwiftUI
 
 struct FoodDetails: View {
+    
     @Binding var show : Bool
     @State private var showVegan = false
     @State private var selectedTab = 0
@@ -16,7 +15,7 @@ struct FoodDetails: View {
     
     var body: some View {
         ZStack {
-            ScrollView {
+            ScrollView (showsIndicators: false){
                 cover
                 detail
             }
@@ -34,8 +33,8 @@ struct FoodDetails: View {
                     .background(.ultraThinMaterial, in : Circle())
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-            .padding(30)
-//            .ignoresSafeArea()
+            .padding(.top, 8)
+            .padding(.trailing, 30)
         }.navigationBarBackButtonHidden()
     }
     
@@ -94,23 +93,34 @@ struct FoodDetails: View {
                     VStack {
                         HStack (alignment: .top, spacing: 20){
                             ForEach(ingredientOne, id: \.self) { ingredientOne in
-                                Image(ingredientOne)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 90, height: 90)
-                                    .padding(5)
+                                VStack {
+                                    Image(ingredientOne)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 90, height: 90)
+                                        .padding(5)
+                                    
+                                    Text("Egg")
+                                        .font(.caption)
+                                        .foregroundColor(.brown)
+                                }
                             }
-                        }                        
-                    }
+                        }
                     
-                    VStack {
                         HStack (alignment: .top, spacing: 20){
                             ForEach(ingredientTwo, id: \.self) { ingredientTwo in
-                                Image(ingredientTwo)
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                                    .frame(width: 90, height: 90)
-                                    .padding(5)
+                                VStack {
+                                    Image(ingredientTwo)
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .frame(width: 90, height: 90)
+                                        .padding(5)
+                                    
+                                    Text("Egg")
+                                        .font(.caption)
+                                        .foregroundColor(.brown)
+                                }
+
                             }
                         }
                     }

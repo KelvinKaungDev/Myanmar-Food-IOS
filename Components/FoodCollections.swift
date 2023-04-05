@@ -14,7 +14,7 @@ struct FoodCollections: View {
     var body: some View {
         
         VStack (alignment: .leading, spacing: 20.0){
-            Image(img)
+            Image(img)  
                 .resizable()
                 .scaledToFill()
                 .frame(width: 250,height: 250)

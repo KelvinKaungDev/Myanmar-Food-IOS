@@ -1,12 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Kaung Htet OO on 3/28/23.
-//
-
-import SwiftUI
-
 struct HistoryBrain {
     
     var image : String

@@ -21,7 +21,7 @@ let package = Package(
             displayVersion: "1.0",
             bundleVersion: "1",
             appIcon: .placeholder(icon: .plane),
-            accentColor: .presetColor(.green),
+            accentColor: .presetColor(.brown),
             supportedDeviceFamilies: [
                 .pad,
                 .phone
@@ -31,7 +31,8 @@ let package = Package(
                 .landscapeRight,
                 .landscapeLeft,
                 .portraitUpsideDown(.when(deviceFamilies: [.pad]))
-            ]
+            ],
+            appCategory: "public.app-category.food-and-drink"
         )
     ],
     targets: [

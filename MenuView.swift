@@ -16,6 +16,15 @@ struct MenuView: View {
         if !show {
                 ZStack {
                     ScrollView( showsIndicators: false) {
+                        
+                        Text("Food Recepies")
+                            .font(.system(size: 40))
+                            .fontWeight(.bold)
+                            .foregroundColor(.brown)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.top, 30)
+                            .padding(20)
+
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack (spacing: 40) {
                                 ForEach(Array(foods.enumerated()), id: \.offset) { index, food in
@@ -55,7 +64,6 @@ struct MenuView: View {
                         }
                     }
                     .foregroundColor(.brown)
-//                    .navigationBarTitleDisplayMode()
                 }
                 .navigationBarBackButtonHidden()
         }
